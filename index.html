@@ -8,13 +8,16 @@
 <body>
   <a-scene background="color: black">
     <a-assets>
-      <img src="road.png" id="road">
+      <img src="50-percent-o.jpg" id="road">
     </a-assets>
     <a-entity environment="preset: starry;"></a-entity>
-    <a-entity position="0 0 2">
+    <a-box position="0 2 0" color=red>
+
+    </a-box>
+    <a-entity position="0 0 72">
       <a-camera></a-camera>
     </a-entity>
-    <a-plane opacity="0.9" position="0 0.2 0" src="#road" width="5" height="500" rotation="-90 0 0"></a-plane>
+    <a-plane opacity="0.9" position="0 0.2 0"  src="#road" width="5" height="200" rotation="-90 0 0"></a-plane>
   </a-scene>
 </body>
 
