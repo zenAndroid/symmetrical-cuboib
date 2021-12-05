@@ -1,7 +1,7 @@
-// Code snippets taken from - https://github.com/supermedium/superframe/tree/master/components
+/* Code snippets taken from - https://github.com/supermedium/superframe/tree/master/components
                             - https://github.com/stemkoski/A-Frame-Examples/blob/master/fade-in.html
                             - https://github.com/stemkoski/A-Frame-Examples/blob/master/text-3D.html
-
+*/
 AFRAME.registerComponent('start', {
 
     init: function () {
@@ -38,6 +38,7 @@ AFRAME.registerComponent('start', {
       buttonEnter.addEventListener('mousedown', fadeIn);
     }
   });
+  
   AFRAME.registerComponent('updater', {
 
     init: function () {
