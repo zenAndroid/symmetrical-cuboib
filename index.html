@@ -58,12 +58,22 @@
       <a-asset-item id="tree" src="alien_tree/scene.gltf"></a-asset-item>
       <a-asset-item id="customFont" src="fonts/helvetiker_regular.typeface.json"></a-asset-item>
     </a-assets>
+    <!--
+██████  ███████ ██████  ██    ██  ██████      ██████  ██       █████  ███    ██ ███████ 
+██   ██ ██      ██   ██ ██    ██ ██           ██   ██ ██      ██   ██ ████   ██ ██      
+██   ██ █████   ██████  ██    ██ ██   ███     ██████  ██      ███████ ██ ██  ██ █████   
+██   ██ ██      ██   ██ ██    ██ ██    ██     ██      ██      ██   ██ ██  ██ ██ ██      
+██████  ███████ ██████   ██████   ██████      ██      ███████ ██   ██ ██   ████ ███████ 
+The following entity helps is for debugging purposes and mostly helps me locate text elements and such right in the middle of these things
+I think it should save me some time                                                                                                                                                                            
+-->
+    <a-plane opacity="0.75" position="0 0.9 0" rotation="0 -90 0" side="double" material=""
+      geometry="height: 10; width: 500"></a-plane>
     <a-entity environment="preset: starry;" scale="2 2 2"></a-entity>
     <a-entity mixin="treeM" position="18 0.1 0"></a-entity>
     <a-entity mixin="treeM" position="-18 0.1 0"></a-entity>
     <!-- <a-box id="test" width="4" height="4" depth="4" position="0 2.9 0" color=red>    </a-box> <!-- Position i the y-axis is half the height + the z-planes y coordinate -->
     <a-entity id="ambientSound" sound="src: #ambient; loop: true; positional:false; volume:0.125"></a-entity>
-
     <!-- 
       ████████ ███████ ██   ██ ████████     ███████ ███    ██ ████████ ██ ████████ ██    ██     ███████ ██   ██  █████  ███    ███ ██████  ██      ███████ 
          ██    ██       ██ ██     ██        ██      ████   ██    ██    ██    ██     ██  ██      ██       ██ ██  ██   ██ ████  ████ ██   ██ ██      ██      
@@ -73,15 +83,44 @@
                                                                                                                                                      
                                                                                                                                                      
     -->
-    <a-entity id="textArea" position="-2.13826 3 -3"
-      text-geometry="font: #customFont; height: 0.1; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; value: Noether's demo"
+    <a-entity id="textArea" position="-2.13826 3 -2"
+      text-geometry="value: Noether's demo"
       material="color: #AAAAFF; src: #hexagons; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="2 -0.7 0" scale="" material="" geometry=""></a-box>
+      <a-box depth="0.5" id="continue" position="2.14268 -0.7 0" scale="" material="" geometry=""></a-box>
     </a-entity>
     <a-entity id="textArea" position="-6.4575 3 -8"
-      text-geometry="font: fonts/helvetiker_regular.typeface.json; height: 0.1; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; value: There are many laws that govern our universe"
+      text-geometry="value: There are many laws that govern our universe"
       material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="6.3725 -0.7 0" scale="" material="" geometry=""></a-box>
+      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
+    </a-entity>
+    <a-entity id="textArea" position="-7.28358 3 -14" 
+      text-geometry="value: These laws seem baroque, opaque and hardcoded" material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
+      <a-box depth="0.5" id="continue" position="7.28117 -0.7 0" scale="" material="" geometry=""></a-box>
+    </a-entity>
+    <a-entity id="textArea" position="-6.4575 3 -20"
+      text-geometry="value: Conservation of energy"
+      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
+      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
+    </a-entity>
+    <a-entity id="textArea" position="-6.4575 3 -20"
+      text-geometry="value: Conservation of momentum"
+      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
+      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
+    </a-entity>
+    <a-entity id="textArea" position="-6.4575 3 -20"
+      text-geometry="value: Newton's laws of motion"
+      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
+      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
+    </a-entity>
+    <a-entity id="textArea" position="-6.4575 3 -20"
+      text-geometry="value: General relativity"
+      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
+      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
+    </a-entity>
+    <a-entity id="textArea" position="-6.4575 3 -26"
+      text-geometry="value: even the standard model of particles"
+      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
+      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
     </a-entity>
     <a-light color="#7b41aa" intensity="4" position="0 20 0"></a-light>
     <a-light color="#7b41aa" position="0 15 15"></a-light>
