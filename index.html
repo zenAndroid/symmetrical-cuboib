@@ -1,6 +1,7 @@
 <html>
 
-  <!-- "Alien Tree" (https://skfb.ly/6WTry) by iammoney45 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).-->
+<!-- "Alien Tree" (https://skfb.ly/6WTry) by iammoney45 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).-->
+
 <head>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
@@ -52,6 +53,7 @@
   <a-scene start background="color: black;">
     <a-assets>
       <audio id="ambient" src="ScienceClic.mp3" preload="auto"></audio>
+      <img src="hexagons.png" id="hexagons" />
       <a-mixin id="treeM" gltf-model="#tree" scale="1 1 1" rotation="0 0 0"></a-mixin>
       <a-asset-item id="tree" src="alien_tree/scene.gltf"></a-asset-item>
       <a-asset-item id="customFont" src="fonts/helvetiker_regular.typeface.json"></a-asset-item>
@@ -59,22 +61,36 @@
     <a-entity environment="preset: starry;" scale="2 2 2"></a-entity>
     <a-entity mixin="treeM" position="18 0.1 0"></a-entity>
     <a-entity mixin="treeM" position="-18 0.1 0"></a-entity>
-    <a-entity id="textArea" position="-1.5 3   -3" text-geometry="font: #customFont;  
-			size: 0.5; 
-			height: 0.1;
-			bevelEnabled: true;
-			bevelSize: 0.02;
-			bevelThickness: 0.02;
-			value: Noether's demo" material="color: #AAAAFF; src: #hexagons; repeat: 20 20;">
-    </a-entity>
     <!-- <a-box id="test" width="4" height="4" depth="4" position="0 2.9 0" color=red>    </a-box> <!-- Position i the y-axis is half the height + the z-planes y coordinate -->
     <a-entity id="ambientSound" sound="src: #ambient; loop: true; positional:false; volume:0.125"></a-entity>
+
+    <!-- 
+      ████████ ███████ ██   ██ ████████     ███████ ███    ██ ████████ ██ ████████ ██    ██     ███████ ██   ██  █████  ███    ███ ██████  ██      ███████ 
+         ██    ██       ██ ██     ██        ██      ████   ██    ██    ██    ██     ██  ██      ██       ██ ██  ██   ██ ████  ████ ██   ██ ██      ██      
+         ██    █████     ███      ██        █████   ██ ██  ██    ██    ██    ██      ████       █████     ███   ███████ ██ ████ ██ ██████  ██      █████   
+         ██    ██       ██ ██     ██        ██      ██  ██ ██    ██    ██    ██       ██        ██       ██ ██  ██   ██ ██  ██  ██ ██      ██      ██      
+         ██    ███████ ██   ██    ██        ███████ ██   ████    ██    ██    ██       ██        ███████ ██   ██ ██   ██ ██      ██ ██      ███████ ███████ 
+                                                                                                                                                     
+                                                                                                                                                     
+    -->
+    <a-entity id="textArea" position="-2.13826 3 -3"
+      text-geometry="font: #customFont; height: 0.1; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; value: Noether's demo"
+      material="color: #AAAAFF; src: #hexagons; repeat: 20 20">
+      <a-box depth="0.5" id="continue" position="2 -0.7 0" scale="" material="" geometry=""></a-box>
+    </a-entity>
+    <a-entity id="textArea" position="-6.4575 3 -8"
+      text-geometry="font: fonts/helvetiker_regular.typeface.json; height: 0.1; bevelEnabled: true; bevelSize: 0.02; bevelThickness: 0.02; value: There are many laws that govern our universe"
+      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
+      <a-box depth="0.5" id="continue" position="6.3725 -0.7 0" scale="" material="" geometry=""></a-box>
+    </a-entity>
+    <a-light color="#7b41aa" intensity="4" position="0 20 0"></a-light>
+    <a-light color="#7b41aa" position="0 15 15"></a-light>
     <a-entity position="0 1 32">
       <a-camera wasd-controls="acceleration:25">
-        
-        <a-plane id="screen" visible=false width="2.5" height="2.5" opacity="0.5" position="0 0 -4"
-          rotation="-22.5 0 0"></a-plane>
-        <a-entity position="0 1 1" light="color: #86d9df; intensity: 2; type: directional;"></a-entity>
+        <a-cursor></a-cursor>
+        <!-- Peut être je vais laisser ca pour plus tard ... idk 
+          <a-plane id="screen" visible=false width="2.5" height="2.5" opacity="0.5" position="0 0 -4"
+          rotation="-22.5 0 0"></a-plane> -->
       </a-camera>
     </a-entity>
     <a-plane opacity="0.75" position="0 0.9 0" width="5" height="300" rotation="-90 0 0">
