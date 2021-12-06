@@ -52,8 +52,9 @@
   </div>
   <a-scene start background="color: black;">
     <a-assets>
-      <audio id="ambient" src="ScienceClic.mp3" preload="auto"></audio>
+      <audio id="ambient" src="Uncharted.mp3" preload="auto"></audio>
       <img src="hexagons.png" id="hexagons" />
+      <a-mixin id="txtMat" material="color: #AAAAFF; src: #hexagons; repeat: 20 20"></a-mixin>
       <a-mixin id="treeM" gltf-model="#tree" scale="1 1 1" rotation="0 0 0"></a-mixin>
       <a-asset-item id="tree" src="alien_tree/scene.gltf"></a-asset-item>
       <a-asset-item id="customFont" src="fonts/helvetiker_regular.typeface.json"></a-asset-item>
@@ -67,65 +68,103 @@
 The following entity helps is for debugging purposes and mostly helps me locate text elements and such right in the middle of these things
 I think it should save me some time                                                                                                                                                                            
 -->
-    <a-plane opacity="0.75" position="0 0.9 0" rotation="0 -90 0" side="double" material=""
+    <a-plane visible="false" opacity="0.75" position="0 0.9 0" rotation="0 -90 0" side="double" 
       geometry="height: 10; width: 500"></a-plane>
-    <a-entity environment="preset: starry;" scale="2 2 2"></a-entity>
+    <a-entity environment="preset: starry; shadow: true;" scale="2 2 2"></a-entity>
     <a-entity mixin="treeM" position="18 0.1 0"></a-entity>
     <a-entity mixin="treeM" position="-18 0.1 0"></a-entity>
     <!-- <a-box id="test" width="4" height="4" depth="4" position="0 2.9 0" color=red>    </a-box> <!-- Position i the y-axis is half the height + the z-planes y coordinate -->
-    <a-entity id="ambientSound" sound="src: #ambient; loop: true; positional:false; volume:0.125"></a-entity>
-    <!-- 
-      ████████ ███████ ██   ██ ████████     ███████ ███    ██ ████████ ██ ████████ ██    ██     ███████ ██   ██  █████  ███    ███ ██████  ██      ███████ 
-         ██    ██       ██ ██     ██        ██      ████   ██    ██    ██    ██     ██  ██      ██       ██ ██  ██   ██ ████  ████ ██   ██ ██      ██      
-         ██    █████     ███      ██        █████   ██ ██  ██    ██    ██    ██      ████       █████     ███   ███████ ██ ████ ██ ██████  ██      █████   
-         ██    ██       ██ ██     ██        ██      ██  ██ ██    ██    ██    ██       ██        ██       ██ ██  ██   ██ ██  ██  ██ ██      ██      ██      
-         ██    ███████ ██   ██    ██        ███████ ██   ████    ██    ██    ██       ██        ███████ ██   ██ ██   ██ ██      ██ ██      ███████ ███████ 
-                                                                                                                                                     
-                                                                                                                                                     
+    <a-entity id="ambientSound" sound="src: #ambient; loop: true; positional:true; volume:0.125"></a-entity>
+<!-- 
+██     ██ ███████ ██       ██████  ██████  ███    ███ ███████ 
+██     ██ ██      ██      ██      ██    ██ ████  ████ ██      
+██  █  ██ █████   ██      ██      ██    ██ ██ ████ ██ █████   
+██ ███ ██ ██      ██      ██      ██    ██ ██  ██  ██ ██      
+ ███ ███  ███████ ███████  ██████  ██████  ██      ██ ███████ 
+                                                              
+                                                              
+-->
+    <a-entity id="welcomeMsg" position="-2.13826 3 -2" text-geometry="value:Noether's demo" mixin="txtMat">
+      <a-box depth="0.5" id="continue" position="2.14268 -0.7 0"></a-box>
+    </a-entity>
+    <!--
+  __  __                                _                        
+ |  \/  |                              | |                       
+ | \  / | __ _ _ __  _   _             | |     __ ___      _____ 
+ | |\/| |/ _` | '_ \| | | |            | |    / _` \ \ /\ / / __|
+ | |  | | (_| | | | | |_| |            | |___| (_| |\ V  V /\__ \
+ |_|  |_|\__,_|_| |_|\__, |            |______\__,_| \_/\_/ |___/
+                      __/ |                           
+                     |___/                            
     -->
-    <a-entity id="textArea" position="-2.13826 3 -2"
-      text-geometry="value: Noether's demo"
-      material="color: #AAAAFF; src: #hexagons; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="2.14268 -0.7 0" scale="" material="" geometry=""></a-box>
+    <a-entity id="manyLaws" position="-4.04198 4.01859 -8" text-geometry="value: There are many laws that 
+      govern our universe" mixin="txtMat" material="">
+      <a-box depth="0.5" id="continue" position="4.03966 -1.56192 0" material="" geometry=""></a-box>
     </a-entity>
-    <a-entity id="textArea" position="-6.4575 3 -8"
-      text-geometry="value: There are many laws that govern our universe"
-      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
+    <!--
+  ____                                   
+ |  _ \                                  
+ | |_) | __ _ _ __ ___   __ _ _   _  ___ 
+ |  _ < / _` | '__/ _ \ / _` | | | |/ _ \
+ | |_) | (_| | | | (_) | (_| | |_| |  __/
+ |____/ \__,_|_|  \___/ \__, |\__,_|\___|
+                           | |           
+                           |_|           
+    -->
+    <a-entity id="baroque" position="-5.13812 4 -14" text-geometry="value: These laws seem baroque, opaque 
+      and unnecessarily complicated" mixin="txtMat" >
+      <a-box depth="0.5" id="continue" position="5.13532 -1.55128 0" material="" geometry=""></a-box>
     </a-entity>
-    <a-entity id="textArea" position="-7.28358 3 -14" 
-      text-geometry="value: These laws seem baroque, opaque and hardcoded" material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="7.28117 -0.7 0" scale="" material="" geometry=""></a-box>
+    <!--
+  ______                                 __  __                            _   
+ |  ____|                               |  \/  |                          | |  
+ | |__   _ __   ___ _ __ __ _ _   _     | \  / | ___  _ __ ___   ___ _ __ | |_ 
+ |  __| | '_ \ / _ \ '__/ _` | | | |    | |\/| |/ _ \| '_ ` _ \ / _ \ '_ \| __|
+ | |____| | | |  __/ | | (_| | |_| |    | |  | | (_) | | | | | |  __/ | | | |_ 
+ |______|_| |_|\___|_|  \__, |\__, |    |_|  |_|\___/|_| |_| |_|\___|_| |_|\__|
+                         __/ | __/ |                                           
+                        |___/ |___/                                                                
+    -->
+    <a-entity position="0 3.75 -20"  id="energyMoment">
+      <a-box depth="0.5" position="0 2.3 -2"></a-box>
+      <a-entity id="energy" position="-7.9052 3.75 0" text-geometry="value:Conservation of energy" mixin="txtMat"
+        rotation="0 25 0"></a-entity>
+      <a-entity id="momentum" position="1.45173 3.75 -3" text-geometry="value:Conservation of momentum" mixin="txtMat"
+        rotation="0 -25 0"></a-entity>
     </a-entity>
-    <a-entity id="textArea" position="-6.4575 3 -20"
-      text-geometry="value: Conservation of energy"
-      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
+    <!--
+  _   _               _                         _           _       _       
+ | \ | |             | |                       (_)         | |     (_)      
+ |  \| | _____      _| |_ ___  _ __         ___ _ _ __  ___| |_ ___ _ _ __  
+ | . ` |/ _ \ \ /\ / / __/ _ \| '_ \       / _ \ | '_ \/ __| __/ _ \ | '_ \ 
+ | |\  |  __/\ V  V /| || (_) | | | |     |  __/ | | | \__ \ ||  __/ | | | |
+ |_| \_|\___| \_/\_/  \__\___/|_| |_|      \___|_|_| |_|___/\__\___|_|_| |_|
+                                                                            
+                                                                            
+    -->
+    <a-entity position="0 0 -20">
+      <a-box depth="0.5" position="0 2.3 -6"></a-box>
+      <a-entity id="newLaws" position="-8.01513 3.75 -5" text-geometry="value:Newton's laws of motion" mixin="txtMat"  rotation="0 25 0"></a-entity>
+      <a-entity id="rel" position="1.7236 3.75 -8" text-geometry="value:General relativity" mixin="txtMat"  rotation="0 -25 0"></a-entity>
     </a-entity>
-    <a-entity id="textArea" position="-6.4575 3 -20"
-      text-geometry="value: Conservation of momentum"
-      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
-    </a-entity>
-    <a-entity id="textArea" position="-6.4575 3 -20"
-      text-geometry="value: Newton's laws of motion"
-      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
-    </a-entity>
-    <a-entity id="textArea" position="-6.4575 3 -20"
-      text-geometry="value: General relativity"
-      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
-    </a-entity>
-    <a-entity id="textArea" position="-6.4575 3 -26"
-      text-geometry="value: even the standard model of particles"
-      material="color: #AAAAFF; src: [object HTMLImageElement]; repeat: 20 20">
-      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0" scale="" material="" geometry=""></a-box>
+    <!--
+   _____ _                  _               _                             _      _      
+  / ____| |                | |             | |                           | |    | |     
+ | (___ | |_ __ _ _ __   __| | __ _ _ __ __| |        _ __ ___   ___   __| | ___| |     
+  \___ \| __/ _` | '_ \ / _` |/ _` | '__/ _` |       | '_ ` _ \ / _ \ / _` |/ _ \ |     
+  ____) | || (_| | | | | (_| | (_| | | | (_| |       | | | | | | (_) | (_| |  __/ |____ 
+ |_____/ \__\__,_|_| |_|\__,_|\__,_|_|  \__,_|       |_| |_| |_|\___/ \__,_|\___|______|
+                                                                                        
+                                                                                        
+    -->
+    <a-entity id="stdMdl" position="-6.4575 3 -26" text-geometry="value:even the standard model of particles"
+      mixin="txtMat">
+      <a-box depth="0.5" id="continue" position="6.4585 -0.7 0"></a-box>
     </a-entity>
     <a-light color="#7b41aa" intensity="4" position="0 20 0"></a-light>
     <a-light color="#7b41aa" position="0 15 15"></a-light>
-    <a-entity position="0 1 32">
-      <a-camera wasd-controls="acceleration:25">
+    <a-entity position="0 1 10">
+      <a-camera wasd-controls="acceleration:75">
         <a-cursor></a-cursor>
         <!-- Peut être je vais laisser ca pour plus tard ... idk 
           <a-plane id="screen" visible=false width="2.5" height="2.5" opacity="0.5" position="0 0 -4"
