@@ -20,6 +20,7 @@ Normally the name was supposed to be symmetrical-cube but I used the interface i
 - Prior Use of ScienceClic's soundtrack, but removed it for now because i don't think it fits.
 - Use of spacetime_lattice : By Mysid - Own work. Self -made in Blender &amp; Inkscape., CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=45121761.
 - "Alien Tree" (https://skfb.ly/6WTry) by iammoney45 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+- Picture of newton: Godfrey Kneller, Public domain, via Wikimedia Commons
 - Credit also to some folks that made much of aframe components.
 - https://github.com/supermedium/superframe/tree/master/components
 - https://github.com/stemkoski/A-Frame-Examples/blob/master/fade-in.html
