@@ -55,12 +55,12 @@
  
      AFRAME.registerComponent('text-geometry', {
        schema: {
-         bevelEnabled: {default: false},
-         bevelSize: {default: 8, min: 0},
-         bevelThickness: {default: 12, min: 0},
+         bevelEnabled: {default: true},
+         bevelSize: {default: 0.02, min: 0},
+         bevelThickness: {default: 0.02, min: 0},
          curveSegments: {default: 12, min: 0},
-         font: {type: 'asset', default: 'https://rawgit.com/ngokevin/kframe/master/components/text-geometry/lib/helvetiker_regular.typeface.json'},
-         height: {default: 0.05, min: 0},
+         font: {type: 'asset', default: 'fonts/helvetiker_regular.typeface.json'},
+         height: {default: 0.1, min: 0},
          size: {default: 0.5, min: 0},
          style: {default: 'normal', oneOf: ['normal', 'italics']},
          weight: {default: 'normal', oneOf: ['normal', 'bold']},
