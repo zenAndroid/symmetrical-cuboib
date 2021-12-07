@@ -5,8 +5,8 @@
 <head>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-  <script src="aframe-text-geometry-component.js"></script>
-  <script src="customJS.js"></script>
+  <script src="js/aframe-text-geometry-component.js"></script>
+  <script src="js/customJS.js"></script>
   <style>
     .mainUI {
       border: 0px solid pink;
@@ -47,54 +47,62 @@
     <!-- centered -->
     <div class="regionUI">
       <div class="buttonUI">
-        <img src="enter.png" id="buttonEnter" />
+        <img src="images/enter.png" id="buttonEnter" />
       </div>
     </div>
   </div>
   <a-scene start background="color: black;">
+      <!--
+        ___               _       
+       / _ \             | |      
+      / /_\ \___ ___  ___| |_ ___ 
+      |  _  / __/ __|/ _ \ __/ __|
+      | | | \__ \__ \  __/ |_\__ \
+      \_| |_/___/___/\___|\__|___/
+                                  
+                                  
+      -->
     <a-assets>
       <audio id="ambient" src="Uncharted.mp3" preload="auto"></audio>
-      <img src="hexagons.png" id="hexagons" />
-      <img src="spacetime_lattice.png" id="spacetyme" />
-      <img src="Isaac_Newton.jpg" id="Isaac_Newton" />
-      <img src="energyCon.png" id="energyCon" />
-      <img src="momentum.png" id="momentum" />
-      <img src="stdMdl.png" id="stdMdl" />
+      <img src="images/hexagons.png" id="hexagons" />
+      <img src="images/spacetime_lattice.png" id="spacetyme" />
+      <img src="images/Isaac_Newton.jpg" id="Isaac_Newton" />
+      <img src="images/energyCon.png" id="energyCon" />
+      <img src="images/momentum.png" id="momentum" />
+      <img src="images/stdMdl.png" id="stdMdl" />
       <a-mixin id="txtMat" material="color: #AAAAFF; src: #hexagons; repeat: 20 20"></a-mixin>
       <a-mixin id="treeM" gltf-model="#tree" scale="1 1 1" rotation="0 0 0"></a-mixin>
       <a-asset-item id="tree" src="alien_tree/scene.gltf"></a-asset-item>
       <a-asset-item id="customFont" src="fonts/helvetiker_regular.typeface.json"></a-asset-item>
     </a-assets>
     <!--
-██████  ███████ ██████  ██    ██  ██████      ██████  ██       █████  ███    ██ ███████ 
-██   ██ ██      ██   ██ ██    ██ ██           ██   ██ ██      ██   ██ ████   ██ ██      
-██   ██ █████   ██████  ██    ██ ██   ███     ██████  ██      ███████ ██ ██  ██ █████   
-██   ██ ██      ██   ██ ██    ██ ██    ██     ██      ██      ██   ██ ██  ██ ██ ██      
-██████  ███████ ██████   ██████   ██████      ██      ███████ ██   ██ ██   ████ ███████ 
+ _____  ______ ____  _    _  _____   _____  _               _   _ ______ 
+|  __ \|  ____|  _ \| |  | |/ ____| |  __ \| |        /\   | \ | |  ____|
+| |  | | |__  | |_) | |  | | |  __  | |__) | |       /  \  |  \| | |__   
+| |  | |  __| |  _ <| |  | | | |_ | |  ___/| |      / /\ \ | . ` |  __|  
+| |__| | |____| |_) | |__| | |__| | | |    | |____ / ____ \| |\  | |____ 
+|_____/|______|____/ \____/ \_____| |_|    |______/_/    \_\_| \_|______|
 The following entity helps is for debugging purposes and mostly helps me locate text elements and such right in the middle of these things
 I think it should save me some time                                                                                                                                                                            
--->
+    -->
     <a-entity>
-      <a-plane visible="false" opacity="0.75" position="0 0.9 0" rotation="0 -90 0" side="double"
-        geometry="height: 10; width: 500"></a-plane>
-      <a-entity scale="4 4 4"
-        environment="preset: starry;shadow: true;lighting: none;groundTexture: checkerboard;grid: 1x1;gridColor: #1100ff">
+      <a-plane visible="false" opacity="0.75" position="0 0.9 0" rotation="0 -90 0" side="double" geometry="height: 10; width: 500"></a-plane>
+      <a-entity scale="4 4 4" environment="preset: starry;shadow: true;lighting: none;groundTexture: checkerboard;grid: 1x1;gridColor: #1100ff">
       </a-entity>
       <a-entity mixin="treeM" position="18 0.1 0"></a-entity>
       <a-entity mixin="treeM" position="-18 0.1 0"></a-entity>
       <!-- <a-box id="test" width="4" height="4" depth="4" position="0 2.9 0" color=red>    </a-box> <!-- Position i the y-axis is half the height + the z-planes y coordinate -->
-      <a-entity id="ambientSound" sound="src: #ambient; loop: true; positional:true; volume:0.125"></a-entity>
-      <!-- 
-██     ██ ███████ ██       ██████  ██████  ███    ███ ███████ 
-██     ██ ██      ██      ██      ██    ██ ████  ████ ██      
-██  █  ██ █████   ██      ██      ██    ██ ██ ████ ██ █████   
-██ ███ ██ ██      ██      ██      ██    ██ ██  ██  ██ ██      
- ███ ███  ███████ ███████  ██████  ██████  ██      ██ ███████ 
-                                                              
-                                                              
--->
+      <a-entity id="ambientSound" sound="src: #ambient; loop: true; positional:true; positional:false; volume:0.125"></a-entity>
+      <!--   
+ __          ________ _      _____ ____  __  __ ______ 
+ \ \        / /  ____| |    / ____/ __ \|  \/  |  ____|
+  \ \  /\  / /| |__  | |   | |   | |  | | \  / | |__   
+   \ \/  \/ / |  __| | |   | |   | |  | | |\/| |  __|  
+    \  /\  /  | |____| |___| |___| |__| | |  | | |____ 
+     \/  \/   |______|______\_____\____/|_|  |_|______|
+      -->
       <a-entity id="welcomeMsg" position="-2.13826 3 -2" text-geometry="value:Noether's demo" mixin="txtMat">
-        <a-box depth="0.5" id="continue" position="2.14268 -0.7 0"></a-box>
+        <a-box depth="0.5" position="2.14268 -0.7 0"></a-box>
       </a-entity>
       <!--
   __  __                                _                        
@@ -106,9 +114,8 @@ I think it should save me some time               �
                       __/ |                           
                      |___/                            
     -->
-      <a-entity id="manyLaws" position="-4.04198 4.01859 -8" text-geometry="value: There are many laws that 
-      govern our universe" mixin="txtMat" material="">
-        <a-box depth="0.5" id="continue" position="4.03966 -1.56192 0" material="" geometry=""></a-box>
+      <a-entity visible="false" id="manyLaws" position="-4.04198 4.01859 -8" text-geometry="value: There are many laws that govern our universe" mixin="txtMat" material="">
+        <a-box depth="0.5" position="4.03966 -1.56192 0" material="" geometry=""></a-box>
       </a-entity>
       <!--
   ____                                   
@@ -120,9 +127,8 @@ I think it should save me some time               �
                            | |           
                            |_|           
     -->
-      <a-entity id="baroque" position="-5.13812 4 -14" text-geometry="value: These laws seem baroque, opaque 
-      and unnecessarily complicated" mixin="txtMat">
-        <a-box depth="0.5" id="continue" position="5.13532 -1.55128 0" material="" geometry=""></a-box>
+      <a-entity visible="false" id="baroque" position="-5.13812 4 -14" text-geometry="value: These laws seem baroque, opaque and unnecessarily complicated" mixin="txtMat">
+        <a-box depth="0.5" position="5.13532 -1.55128 0" material="" geometry=""></a-box>
       </a-entity>
       <!--
   ______                                 __  __                            _   
@@ -134,16 +140,12 @@ I think it should save me some time               �
                          __/ | __/ |                                           
                         |___/ |___/                                                                
     -->
-      <a-entity position="0 3.75 -20" id="energyMoment">
-        <a-image position="-4.85 2.096 -1.472" src="#energyCon" material="shader: standard; opacity: 0.5"
-          geometry="height: 1.23; width: 3.54" scale="2 2 1" rotation="0 25 0"></a-image>
-        <a-image position="5.72156 2.64 -1.03197" src="#momentum" material="shader: standard; opacity: 0.5"
-          geometry="height: 1.94; width: 4.15" scale="2 2 1" rotation="0 -25 0"></a-image>
+      <a-entity visible="false" position="0 3.75 -20" id="energyMoment">
+        <a-image position="-4.85 2.096 -1.472" src="#energyCon" material="shader: standard; opacity: 0.5" geometry="height: 1.23; width: 3.54" scale="2 2 1" rotation="0 25 0"></a-image>
+        <a-image position="5.72156 2.64 -1.03197" src="#momentum" material="shader: standard; opacity: 0.5" geometry="height: 1.94; width: 4.15" scale="2 2 1" rotation="0 -25 0"></a-image>
         <a-box depth="0.5" position="0 0 -2"></a-box>
-        <a-entity id="energy" position="-7.9052 0 0" text-geometry="value:Conservation of energy" mixin="txtMat"
-          rotation="0 25 0"></a-entity>
-        <a-entity id="momentum" position="1.45173 0 -3" text-geometry="value:Conservation of momentum" mixin="txtMat"
-          rotation="0 -25 0"></a-entity>
+        <a-entity id="energy" position="-7.9052 0 0" text-geometry="value:Conservation of energy" mixin="txtMat" rotation="0 25 0"></a-entity>
+        <a-entity id="momentum" position="1.45173 0 -3" text-geometry="value:Conservation of momentum" mixin="txtMat" rotation="0 -25 0"></a-entity>
       </a-entity>
       <!--
   _   _               _                         _           _       _       
@@ -155,7 +157,7 @@ I think it should save me some time               �
                                                                             
                                                                             
     -->
-      <a-entity position="0 0 -24">
+      <a-entity visible="false" position="0 0 -24" id="newtEin">
         <a-image position="-4.50858 8.5 -6.53958" src="#Isaac_Newton" material="shader: standard; opacity: 0.5"
           geometry="width:2.3;height:2.791" scale="3 3 1" rotation="0 25 0"></a-image>
         <a-image position="4.15282 6.40481 -6.95338" src="#spacetyme" material="shader: standard; opacity: 0.5"
@@ -176,12 +178,10 @@ I think it should save me some time               �
                                                                                         
                                                                                         
     -->
-      <a-entity position="0 0 -38" id="stdMdl">
-        <a-image src="#stdMdl" position="0 5 0" material="shader: standard; opacity: 0.5"
-          geometry="height:  0.449;  width:  0.852" scale="4 4 1"></a-image>
-        <a-entity id="stdMdl" position="-6.4575 3 0" text-geometry="value:even the standard model of particles"
-          mixin="txtMat">
-          <a-box depth="0.5" id="continue" position="6.4585 -0.7 0"></a-box>
+      <a-entity visible="false" position="0 0 -38" id="stdMdl">
+        <a-image src="#stdMdl" position="0 5 0" material="shader: standard; opacity: 0.5" geometry="height:  0.449;  width:  0.852" scale="4 4 1"></a-image>
+        <a-entity id="stdMdl" position="-6.4575 3 0" text-geometry="value:even the standard model of particles" mixin="txtMat">
+          <a-box depth="0.5" position="6.4585 -0.7 0"></a-box>
         </a-entity>
       </a-entity>
       <!--
@@ -197,14 +197,11 @@ I think it should save me some time               �
       <a-light color="#7b41aa" intensity="4" position="0 20 0"></a-light>
       <a-light color="#7b41aa" position="0 15 15"></a-light>
       <a-entity position="0 1 10">
-        <a-camera wasd-controls="acceleration:75">
+        <a-camera wasd-controls="acceleration:100">
           <a-cursor></a-cursor>
-          <!-- Peut être je vais laisser ca pour plus tard ... idk 
-          <a-plane id="screen" visible=false width="2.5" height="2.5" opacity="0.5" position="0 0 -4"
-          rotation="-22.5 0 0"></a-plane> -->
         </a-camera>
       </a-entity>
-      <a-plane opacity="0.75" position="0 0.9 0" width="5" height="300" rotation="-90 0 0">
+      <a-plane opacity="0.75" position="0 0.9 0" width="5" height="900" rotation="-90 0 0">
       </a-plane>
   </a-scene>
 </body>

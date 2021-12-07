@@ -38,7 +38,9 @@ AFRAME.registerComponent('start', {
       buttonEnter.addEventListener('mousedown', fadeIn);
     }
   });
-  
+  /*
+  This isn't really used right now but i'm leaving it up just so i have a kind of a guide when creating my own thing
+  */
   AFRAME.registerComponent('updater', {
 
     init: function () {
