@@ -5,6 +5,7 @@
 <head>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
   <script src="js/aframe-text-geometry-component.js"></script>
   <script src="js/customJS.js"></script>
   <style>
@@ -69,7 +70,7 @@
       <img src="images/Isaac_Newton.jpg" id="Isaac_Newton" />
       <img src="images/energyCon.png" id="energyCon" />
       <img src="images/momentum.png" id="momentum" />
-      <img src="images/stdMdl.png" id="stdMdl" />
+      <img src="images/stdMdl.png" id="stadMdl" />
       <a-mixin id="txtMat" material="color: #AAAAFF; src: #hexagons; repeat: 20 20"></a-mixin>
       <a-mixin id="treeM" gltf-model="#tree" scale="1 1 1" rotation="0 0 0"></a-mixin>
       <a-asset-item id="tree" src="alien_tree/scene.gltf"></a-asset-item>
@@ -102,7 +103,10 @@ I think it should save me some time               �
      \/  \/   |______|______\_____\____/|_|  |_|______|
       -->
       <a-entity id="welcomeMsg" position="-2.13826 3 -2" text-geometry="value:Noether's demo" mixin="txtMat">
-        <a-box depth="0.5" position="2.14268 -0.7 0"></a-box>
+        <a-box depth="0.5" position="2.14268 -0.7 0" 
+        event-set__1="_event: click; visible:false"
+        event-set__2="_event: click; _target:#welcomeMsg; visible:false"
+        event-set__3="_event: click; _target:#manyLaws; visible:true"></a-box>
       </a-entity>
       <!--
   __  __                                _                        
@@ -114,8 +118,12 @@ I think it should save me some time               �
                       __/ |                           
                      |___/                            
     -->
-      <a-entity visible="false" id="manyLaws" position="-4.04198 4.01859 -8" text-geometry="value: There are many laws that govern our universe" mixin="txtMat" material="">
-        <a-box depth="0.5" position="4.03966 -1.56192 0" material="" geometry=""></a-box>
+      <a-entity visible="false" id="manyLaws" position="-4.04198 4.01859 -8" text-geometry="value: There are many laws that
+       govern our universe" mixin="txtMat" material="">
+        <a-box depth="0.5" position="4.03966 -1.56192 0" material="" geometry=""
+        event-set__4="_event: click; visible:false"
+        event-set__5="_event: click; _target:#manyLaws; visible:false"
+        event-set__6="_event: click; _target:#baroque; visible:true"></a-box>
       </a-entity>
       <!--
   ____                                   
@@ -127,8 +135,12 @@ I think it should save me some time               �
                            | |           
                            |_|           
     -->
-      <a-entity visible="false" id="baroque" position="-5.13812 4 -14" text-geometry="value: These laws seem baroque, opaque and unnecessarily complicated" mixin="txtMat">
-        <a-box depth="0.5" position="5.13532 -1.55128 0" material="" geometry=""></a-box>
+      <a-entity visible="false" id="baroque" position="-5.13812 4 -14" text-geometry="value: These laws seem baroque, opaque
+      and unnecessarily complicated" mixin="txtMat">
+        <a-box depth="0.5" position="5.13532 -1.55128 0" material="" geometry=""
+        event-set__7="_event: click; visible:false"
+        event-set__8="_event: click; _target:#baroque; visible:false"
+        event-set__9="_event: click; _target:#energyMoment; visible:true"></a-box>
       </a-entity>
       <!--
   ______                                 __  __                            _   
@@ -143,7 +155,10 @@ I think it should save me some time               �
       <a-entity visible="false" position="0 3.75 -20" id="energyMoment">
         <a-image position="-4.85 2.096 -1.472" src="#energyCon" material="shader: standard; opacity: 0.5" geometry="height: 1.23; width: 3.54" scale="2 2 1" rotation="0 25 0"></a-image>
         <a-image position="5.72156 2.64 -1.03197" src="#momentum" material="shader: standard; opacity: 0.5" geometry="height: 1.94; width: 4.15" scale="2 2 1" rotation="0 -25 0"></a-image>
-        <a-box depth="0.5" position="0 0 -2"></a-box>
+        <a-box depth="0.5" position="0 0 -2"
+        event-set__10="_event: click; visible:false"
+        event-set__11="_event: click; _target:#energyMoment; visible:false"
+        event-set__12="_event: click; _target:#newtEin; visible:true"></a-box>
         <a-entity id="energy" position="-7.9052 0 0" text-geometry="value:Conservation of energy" mixin="txtMat" rotation="0 25 0"></a-entity>
         <a-entity id="momentum" position="1.45173 0 -3" text-geometry="value:Conservation of momentum" mixin="txtMat" rotation="0 -25 0"></a-entity>
       </a-entity>
@@ -162,7 +177,10 @@ I think it should save me some time               �
           geometry="width:2.3;height:2.791" scale="3 3 1" rotation="0 25 0"></a-image>
         <a-image position="4.15282 6.40481 -6.95338" src="#spacetyme" material="shader: standard; opacity: 0.5"
           geometry="width: 1.92; height: 0.715" scale="4 4 1" rotation="0 -25 0"></a-image>
-        <a-box depth="0.5" position="0 2.3 -6"></a-box>
+        <a-box depth="0.5" position="0 2.3 -6"
+        event-set__10="_event: click; visible:false"
+        event-set__11="_event: click; _target:#newtEin; visible:false"
+        event-set__12="_event: click; _target:#stdMdl; visible:true"></a-box>
         <a-entity id="newLaws" position="-8.01513 3.75 -5" text-geometry="value:Newton's laws of motion" mixin="txtMat"
           rotation="0 25 0"></a-entity>
         <a-entity id="rel" position="1.7236 3.75 -8" text-geometry="value:General relativity" mixin="txtMat"
@@ -179,7 +197,7 @@ I think it should save me some time               �
                                                                                         
     -->
       <a-entity visible="false" position="0 0 -38" id="stdMdl">
-        <a-image src="#stdMdl" position="0 5 0" material="shader: standard; opacity: 0.5" geometry="height:  0.449;  width:  0.852" scale="4 4 1"></a-image>
+        <a-image src="#stadMdl" position="0 5 0" material="shader: standard; opacity: 0.5" geometry="height:  0.449;  width:  0.852" scale="4 4 1"></a-image>
         <a-entity id="stdMdl" position="-6.4575 3 0" text-geometry="value:even the standard model of particles" mixin="txtMat">
           <a-box depth="0.5" position="6.4585 -0.7 0"></a-box>
         </a-entity>
@@ -197,7 +215,7 @@ I think it should save me some time               �
       <a-light color="#7b41aa" intensity="4" position="0 20 0"></a-light>
       <a-light color="#7b41aa" position="0 15 15"></a-light>
       <a-entity position="0 1 10">
-        <a-camera wasd-controls="acceleration:100">
+        <a-camera wasd-controls="acceleration:50">
           <a-cursor></a-cursor>
         </a-camera>
       </a-entity>
