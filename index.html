@@ -44,7 +44,7 @@
 
 <body>
   <title>Noether's Demo</title>
-  <div class="mainUI" id="uiDiv" oncontextmenu="return false;">
+   <div class="mainUI" id="uiDiv" oncontextmenu="return false;">
     <!-- centered -->
     <div class="regionUI">
       <div class="buttonUI">
@@ -52,7 +52,7 @@
       </div>
     </div>
   </div>
-  <a-scene start background="color: black;">
+  <a-scene far="50" fog="type:linear" start stats background="color:black;">
       <!--
         ___               _       
        / _ \             | |      
@@ -103,7 +103,7 @@ I think it should save me some time               �
      \/  \/   |______|______\_____\____/|_|  |_|______|
       -->
       <a-entity id="welcomeMsg" position="-2.13826 3 -2" text-geometry="value:Noether's demo" mixin="txtMat">
-        <a-box depth="0.5" position="2.14268 -0.7 0" 
+        <a-box class="button" depth="0.5" position="2.14268 -0.7 0" 
         event-set__1="_event: click; visible:false"
         event-set__2="_event: click; _target:#welcomeMsg; visible:false"
         event-set__3="_event: click; _target:#manyLaws; visible:true"></a-box>
@@ -120,10 +120,10 @@ I think it should save me some time               �
     -->
       <a-entity visible="false" id="manyLaws" position="-4.04198 4.01859 -8" text-geometry="value: There are many laws that
        govern our universe" mixin="txtMat" material="">
-        <a-box depth="0.5" position="4.03966 -1.56192 0" material="" geometry=""
-        event-set__4="_event: click; visible:false"
-        event-set__5="_event: click; _target:#manyLaws; visible:false"
-        event-set__6="_event: click; _target:#baroque; visible:true"></a-box>
+        <a-box class="button" depth="0.5" position="4.03966 -1.56192 0" material="" geometry=""
+        event-set__1="_event: click; visible:false"
+        event-set__2="_event: click; _target:#manyLaws; visible:false"
+        event-set__3="_event: click; _target:#baroque; visible:true"></a-box>
       </a-entity>
       <!--
   ____                                   
@@ -137,10 +137,10 @@ I think it should save me some time               �
     -->
       <a-entity visible="false" id="baroque" position="-5.13812 4 -14" text-geometry="value: These laws seem baroque, opaque
       and unnecessarily complicated" mixin="txtMat">
-        <a-box depth="0.5" position="5.13532 -1.55128 0" material="" geometry=""
-        event-set__7="_event: click; visible:false"
-        event-set__8="_event: click; _target:#baroque; visible:false"
-        event-set__9="_event: click; _target:#energyMoment; visible:true"></a-box>
+        <a-box class="button" depth="0.5" position="5.13532 -1.55128 0" material="" geometry=""
+        event-set__1="_event: click; visible:false"
+        event-set__2="_event: click; _target:#baroque; visible:false"
+        event-set__3="_event: click; _target:#energyMoment; visible:true"></a-box>
       </a-entity>
       <!--
   ______                                 __  __                            _   
@@ -155,10 +155,10 @@ I think it should save me some time               �
       <a-entity visible="false" position="0 3.75 -20" id="energyMoment">
         <a-image position="-4.85 2.096 -1.472" src="#energyCon" material="shader: standard; opacity: 0.5" geometry="height: 1.23; width: 3.54" scale="2 2 1" rotation="0 25 0"></a-image>
         <a-image position="5.72156 2.64 -1.03197" src="#momentum" material="shader: standard; opacity: 0.5" geometry="height: 1.94; width: 4.15" scale="2 2 1" rotation="0 -25 0"></a-image>
-        <a-box depth="0.5" position="0 0 -2"
-        event-set__10="_event: click; visible:false"
-        event-set__11="_event: click; _target:#energyMoment; visible:false"
-        event-set__12="_event: click; _target:#newtEin; visible:true"></a-box>
+        <a-box class="button" depth="0.5" position="0 0 -2"
+        event-set__1="_event: click; visible:false"
+        event-set__2="_event: click; _target:#energyMoment; visible:false"
+        event-set__3="_event: click; _target:#newtEin; visible:true"></a-box>
         <a-entity id="energy" position="-7.9052 0 0" text-geometry="value:Conservation of energy" mixin="txtMat" rotation="0 25 0"></a-entity>
         <a-entity id="momentum" position="1.45173 0 -3" text-geometry="value:Conservation of momentum" mixin="txtMat" rotation="0 -25 0"></a-entity>
       </a-entity>
@@ -177,10 +177,10 @@ I think it should save me some time               �
           geometry="width:2.3;height:2.791" scale="3 3 1" rotation="0 25 0"></a-image>
         <a-image position="4.15282 6.40481 -6.95338" src="#spacetyme" material="shader: standard; opacity: 0.5"
           geometry="width: 1.92; height: 0.715" scale="4 4 1" rotation="0 -25 0"></a-image>
-        <a-box depth="0.5" position="0 2.3 -6"
-        event-set__10="_event: click; visible:false"
-        event-set__11="_event: click; _target:#newtEin; visible:false"
-        event-set__12="_event: click; _target:#stdMdl; visible:true"></a-box>
+        <a-box class="button" depth="0.5" position="0 2.3 -6"
+        event-set__1="_event: click; visible:false"
+        event-set__2="_event: click; _target:#newtEin; visible:false"
+        event-set__3="_event: click; _target:#stdMdl; visible:true"></a-box>
         <a-entity id="newLaws" position="-8.01513 3.75 -5" text-geometry="value:Newton's laws of motion" mixin="txtMat"
           rotation="0 25 0"></a-entity>
         <a-entity id="rel" position="1.7236 3.75 -8" text-geometry="value:General relativity" mixin="txtMat"
@@ -198,10 +198,155 @@ I think it should save me some time               �
     -->
       <a-entity visible="false" position="0 0 -38" id="stdMdl">
         <a-image src="#stadMdl" position="0 5 0" material="shader: standard; opacity: 0.5" geometry="height:  0.449;  width:  0.852" scale="4 4 1"></a-image>
-        <a-entity id="stdMdl" position="-6.4575 3 0" text-geometry="value:even the standard model of particles" mixin="txtMat">
-          <a-box depth="0.5" position="6.4585 -0.7 0"></a-box>
+        <a-entity id="stdMdl" position="-5.44412 3 0" text-geometry="value: even the standard model of particles" mixin="txtMat" material="">
+          <a-box class="button" depth="0.5" position="5.45981 -0.7 0" event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#stdMdl; visible:false"
+          event-set__3="_event: click; _target:#butAll; visible:true"></a-box>
         </a-entity>
       </a-entity>
+<!-- But ... -->
+      <a-entity visible="false" position="0 0 -44" id="butAll">
+        <a-entity id="butAll" position="-3.86143 3 -2" text-geometry="value:But all of these complex laws" mixin="txtMat">
+          <a-box class="button" depth="0.5" position="3.87939 -0.7 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#butAll; visible:false"
+          event-set__3="_event: click; _target:#ariseFrom; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+
+      <!-- arise from -->
+      <a-entity visible="false" position="0 0 -50" id="ariseFrom">
+        <a-entity id="ariseFrom" position="-5.76056 4.4632 -2" text-geometry=
+        "value:Arise from a simple consequence about
+                 our universe" mixin="txtMat">
+          <a-box class="button" depth="0.5" position="5.76316 -1.5962 0"
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#ariseFrom; visible:false"
+          event-set__3="_event: click; _target:#theSymmetries; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <!-- THE SYMMETRIES -->
+
+      <a-entity visible="false" position="0 0 -55" id="theSymmetries">
+        <a-entity id="theSymmetries" position="-4.5 4.5 -2" text-geometry=
+        "value:    They arise from the
+*SYMMETRIES* of our universe" mixin="txtMat" color="red">
+          <a-box class="button" depth="0.5" position="4.48 -2 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#theSymmetries; visible:false"
+          event-set__3="_event: click; _target:#watsym; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -60" id="watsym">
+        <a-entity id="watsym" position="-4.68 6 -2" text-geometry=
+        "value:We say that a system is symmetric
+        relative to a transformation" mixin="txtMat">
+          <a-box class="button" depth="0.5" position="4.7 -2 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#watsym; visible:false"
+          event-set__3="_event: click; _target:#watSymm2; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -60" id="watSymm2">
+        <a-entity id="watSymm2" position="-3.13826 4.5 -2" text-geometry=
+        "value:      If applying the transformation
+leaves the system unchanged  " mixin="txtMat">
+          <a-box class="button" depth="0.5" position="3.15 -2 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#watSymm2; visible:false"
+          event-set__3="_event: click; _target:#forExmpl; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -70" id="forExmpl">
+        <a-entity id="forExmpl" position="-2.13826 3 -2" text-geometry=
+        "value:FOR EXAMPLE" mixin="txtMat">
+          <a-box class="button" depth="0.5" position="2.14268 -0.7 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#forExmpl; visible:false"
+          event-set__3="_event: click; _target:#rope; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -75" id="rope">
+        <a-entity id="rope" position="-7.2 5 -2" text-geometry=
+        "value:A rope can be said to be translationally symmetric ..." mixin="txtMat">
+          <a-box class="button" depth="0.5" position="7.26 -0.7 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#rope; visible:false"
+          event-set__3="_event: click; _target:#rope2; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -75" id="rope2">
+        <a-entity id="rope2" position="-6.9 3 -2" text-geometry=
+        "value:Since applying translation on it doesn't change it." mixin="txtMat">
+        <a-cylinder id="theRope" material="" geometry="height: 150; radius: 0.1" position="0 2 0" rotation="0 0 -90"></a-cylinder>
+          <a-box class="button" depth="0.5" position="6.934 -0.7 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#rope2; visible:false"
+          event-set__3="_event: click; _target:#sphereee; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -80" id="sphereee">
+        <a-entity id="sphereee" position="-5.22 8.5 -2" text-geometry=
+        "value:The same can be said about a sphere
+        (it is rotationally symmetirc)" mixin="txtMat">
+          <a-sphere position="5.25 -2.3 -2.376"></a-sphere>
+          <a-box class="button" depth="0.5" position="5.22 -4.2 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#sphereee; visible:false"
+          event-set__3="_event: click; _target:#systemOfInterest; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -100" id="systemOfInterest">
+        <a-entity id="systemOfInterest" position="-4.63 5 -2" text-geometry=
+        "value:The system WE are interested in ..." mixin="txtMat">
+          <a-box class="button" depth="0.5" position="4.62 -0.7 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#systemOfInterest; visible:false"
+          event-set__3="_event: click; _target:#lawsSystem; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -110" id="lawsSystem">
+        <a-entity id="lawsSystem" position="-6.52 5 -2" text-geometry=
+        "value: ... is that of the physical laws of the universe ..." mixin="txtMat">
+          <a-box class="button" depth="0.5" position="6.56 -0.7 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#lawsSystem; visible:false"
+          event-set__3="_event: click; _target:#specificallyTranslation; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -115" id="specificallyTranslation">
+        <a-entity id="specificallyTranslation" position="-7.76 7.5 -2" text-geometry=
+        "value:Specifically, this demo is interested in showing how
+        the translational symmetry of the universe 
+        implies the conservation of momentum" mixin="txtMat">
+          <a-box class="button" depth="0.5" position="7.752 -4 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#specificallyTranslation; visible:false"
+          event-set__3="_event: click; _target:#toUnderstand; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+
+      <a-entity visible="false" position="0 0 -120" id="toUnderstand">
+        <a-entity id="toUnderstand" position="-9 5 -2" text-geometry=
+        "value: To understand, imagine a sphere being pushed in empty space" mixin="txtMat">
+          <a-box class="button" depth="0.5" position="9 -0.7 0" 
+          event-set__1="_event: click; visible:false"
+          event-set__2="_event: click; _target:#toUnderstand; visible:false"
+          event-set__3="_event: click; _target:#rope2; visible:true"></a-box>
+        </a-entity>
+      </a-entity>
+      
       <!--
   _____  _____   ____  __  __ _____ _______   ______ _   _ _____  
  |  __ \|  __ \ / __ \|  \/  |  __ \__   __| |  ____| \ | |  __ \ 
@@ -214,11 +359,12 @@ I think it should save me some time               �
     -->
       <a-light color="#7b41aa" intensity="4" position="0 20 0"></a-light>
       <a-light color="#7b41aa" position="0 15 15"></a-light>
-      <a-entity position="0 1 10">
-        <a-camera wasd-controls="acceleration:50">
-          <a-cursor></a-cursor>
+      <a-entity position="0 1 16">
+        <a-camera wasd-controls="acceleration:100" fov="100">
+          <a-cursor raycaster="objects: .button; far: 100"></a-cursor>
         </a-camera>
       </a-entity>
+      <a-box visible="false" material="" geometry="depth: 10; height: 10; width: 10" position="-460 250 -592" scale="5 5 5"></a-box>
       <a-plane opacity="0.75" position="0 0.9 0" width="5" height="900" rotation="-90 0 0">
       </a-plane>
   </a-scene>
