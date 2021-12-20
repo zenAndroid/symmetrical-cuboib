@@ -8,6 +8,41 @@
   <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
   <script src="js/aframe-text-geometry-component.js"></script>
   <script src="js/customJS.js"></script>
+  <script>
+    AFRAME.registerComponent('listen-to', {
+        multiple: true,
+        schema: {
+          target: {type: 'selector'},
+          event: {type: 'string', default: 'click'},
+          emit: {type: 'string', default: 'click'}
+        },
+        init: function () {
+            this.addEvent();
+        },
+        addEvent: function () {
+          let event = this.data.event;
+          let target = this.data.target;
+          this.handler = evt => this.onEvent(evt);
+          target.addEventListener(event, this.handler);
+        },
+        onEvent: function () {
+          this.el.emit(this.data.emit);
+        },
+        update: function (oldData) {
+          // We doesn't need the update phase during the initialisation phase
+          if (Object.entries(oldData).length === 0) return;
+          if (oldData.target != this.data.target || oldData.event != this.data.event) {
+            this.remove(oldData.target, oldData.event);
+            this.addEvent();
+          }
+        },
+        remove: function (target, event) {
+          let currEvent = event || this.data.event;
+          let currTarget = target || this.data.target;
+          currTarget.removeEventListener(currEvent, this.handler);
+        }
+      });
+  </script>
   <style>
     .mainUI {
       border: 0px solid pink;
@@ -52,7 +87,7 @@
       </div>
     </div>
   </div>
-  <a-scene far="50" fog="type:linear" start stats background="color:black;">
+  <a-scene far="50" fog="type:exponential" start stats background="color:black;">
       <!--
         ___               _       
        / _ \             | |      
@@ -296,7 +331,7 @@ leaves the system unchanged  " mixin="txtMat">
       <a-entity visible="false" position="0 0 -80" id="sphereee">
         <a-entity id="sphereee" position="-5.22 8.5 -2" text-geometry=
         "value:The same can be said about a sphere
-        (it is rotationally symmetirc)" mixin="txtMat">
+        (it is rotationally symmetric)" mixin="txtMat">
           <a-sphere position="5.25 -2.3 -2.376"></a-sphere>
           <a-box class="button" depth="0.5" position="5.22 -4.2 0" 
           event-set__1="_event: click; visible:false"
@@ -340,12 +375,16 @@ leaves the system unchanged  " mixin="txtMat">
       <a-entity visible="false" position="0 0 -120" id="toUnderstand">
         <a-entity id="toUnderstand" position="-9 5 -2" text-geometry=
         "value: To understand, imagine a sphere being pushed in empty space" mixin="txtMat">
-          <a-box class="button" depth="0.5" position="9 -0.7 0" 
+          <a-box id="sphereButt" class="button" depth="0.5" position="9 -0.7 0" 
           event-set__1="_event: click; visible:false"
           event-set__2="_event: click; _target:#toUnderstand; visible:false"
           event-set__3="_event: click; _target:#rope2; visible:true"></a-box>
         </a-entity>
       </a-entity>
+
+      <a-entity id="theSphere" geometry="primitive:  sphere;  radius:  40" position="-200 200 -180"
+                listen-to__open="target: #sphereButt; event: click; emit: goLittleSphereGO"
+                animation__open="property: position; to: 200 200 -180; dir: alternate;dur: 15000;easing: linear; startEvents: goLittleSphereGO"></a-entity>
       
       <!--
   _____  _____   ____  __  __ _____ _______   ______ _   _ _____  
@@ -361,7 +400,7 @@ leaves the system unchanged  " mixin="txtMat">
       <a-light color="#7b41aa" position="0 15 15"></a-light>
       <a-entity position="0 1 16">
         <a-camera wasd-controls="acceleration:100" fov="100">
-          <a-cursor raycaster="objects: .button; far: 100"></a-cursor>
+          <a-cursor geometry="primitive: circle;  radius: 0.01" raycaster="objects: .button; far: 100"></a-cursor>
         </a-camera>
       </a-entity>
       <a-box visible="false" material="" geometry="depth: 10; height: 10; width: 10" position="-460 250 -592" scale="5 5 5"></a-box>
